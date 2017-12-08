@@ -1,11 +1,13 @@
-from django.conf.urls import url
+from django.urls import path
 from . import views
+
+app_name= 'beans'
 
 urlpatterns = [
 
-	url(r'^signup/$', views.usersignup, name='signup'),
-	url(r'^login/$', views.userlogin, name='login'),
-	url(r'^logout/$', views.userlogout, name='logout'),
-
+	path('signup/', views.usersignup, name='signup'),
+	path('login/', views.userlogin, name='login'),
+	path('logout/', views.userlogout, name='logout'),
+	path('create/', views.create_coffee, name='create'),
 
 ]
