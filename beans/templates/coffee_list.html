@@ -8,7 +8,14 @@
                 <div class="caption">
                     <h3>{{coffee.name}}</h3>
                     <p>{{coffee.price}}</p>
-                    <p><a href="{% url 'mycoffee:coffee_detail' coffee_id=coffee.id %}" class="btn btn-primary" role="button">More Details</a>
+                    <p><a href="{% url 'cafe:coffee_detail' coffee_id=coffee.id %}" class="btn btn-primary" role="button">More Details</a>
+                        <p>
+                        <form action="{% url 'cart:mycart' %}" method="GET">
+                          <input type="hidden" name="item" value="{{coffee.id}}"/>
+                          <input type="hidden" class="item-qty" name="qty" value="1"/>
+                          <input type="submit" class="btn btn-success" value="Add to Cart"/>
+                        </form>
+                    </p>
                 </div>
             </div>
         </div>
